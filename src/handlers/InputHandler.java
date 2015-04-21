@@ -11,15 +11,17 @@ public class InputHandler implements KeyListener {
 		// TODO Auto-generated method stub
 		if(Game.key == 0)
 		{
-		
+		System.out.println(arg0.getKeyCode());
 		if(arg0.getKeyCode() == KeyEvent.VK_UP)
 			Game.key = 1;
-		if(arg0.getKeyCode() == KeyEvent.VK_DOWN)
+		else if(arg0.getKeyCode() == KeyEvent.VK_DOWN)
 			Game.key = 2;
-		if(arg0.getKeyCode() == KeyEvent.VK_RIGHT)
+		else if(arg0.getKeyCode() == KeyEvent.VK_RIGHT)
 			Game.key = 3;
-		if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
+		else if(arg0.getKeyCode() == KeyEvent.VK_LEFT)
 			Game.key = 4;
+		else if(arg0.getKeyCode() == KeyEvent.VK_R)
+			Game.key = 10;
 		}
 	}
 

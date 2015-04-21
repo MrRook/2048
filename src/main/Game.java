@@ -10,21 +10,29 @@ import display.Textures;
 public class Game {
 	public static volatile int key=0;
 	public static void main(String[] args) {
+		
 		// TODO Auto-generated method stub
+		ScoreManager scoreManager;
+		Display d=new Display();
 		Textures.initialize();
 		int Mat[][];
-		Mat = new int[4][4];
-		ScoreManager scoreManager = new ScoreManager();
-		Display d=new Display();
+		
+		while(true)
+		{
+		// resetting
+			Mat = new int[4][4];
+		scoreManager	= new ScoreManager();
 		Random r = new Random();
 		Mat[Math.abs(r.nextInt())%4][Math.abs(r.nextInt())%4] = 2;
 		Mat[Math.abs(r.nextInt())%4][Math.abs(r.nextInt())%4] = 2;
 		d.Update(Mat);
 		while(true)
 		{
+			
 		
 			if(key > 0)
 			{
+				System.out.println(key);
 			int deltaScore=0;
 			if(key==1)
 				deltaScore=gameLogic.OnMovement.onUp(Mat);
@@ -34,6 +42,8 @@ public class Game {
 				deltaScore=gameLogic.OnMovement.onRight(Mat);
 			if(key==4)
 				deltaScore=gameLogic.OnMovement.onLeft(Mat);
+			if(key==10)
+				System.out.println(key);
 			if(deltaScore == -1)
 			{
 				key=0;
@@ -74,6 +84,7 @@ public class Game {
 
 				if(!CheckIfPossible.Possible(Mat))
 				{
+					scoreManager.GameOver(d);
 					System.out.println("Game Over !!");
 				}
 				
@@ -81,6 +92,7 @@ public class Game {
 			}
 			else 
 				{
+				scoreManager.GameOver(d);
 
 				System.out.println("Game Over !!");
 				}
@@ -90,6 +102,7 @@ public class Game {
 			
 
 			
+		}
 		}
 		
 	}

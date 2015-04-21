@@ -6,5 +6,8 @@ public class ScoreManager {
 		score += deltaScore;
 		d.Score.setText("     Score : "+score);
 	}
-
+	public void GameOver(display.Display d)
+	{
+		d.Score.setText("Score : "+score+ " Game Over! Press R to reset");
+	}
 }
